@@ -15,6 +15,7 @@ Class Voluntario {
     private $estado;
     private $cep;
     private $qualificacoes;
+    private $imagem;
 
     public function getId() { return $this->id; }
     public function setId($id) { $this->id = $id; }
@@ -40,14 +41,16 @@ Class Voluntario {
     public function setCEP($cep) { $this->cep = $cep; }
     public function getQualificacoes() { return $this->qualificacoes; }
     public function setQualificacoes($qualificacoes) { $this->qualificacoes = $qualificacoes; }
+    public function getImagem() { return $this->imagem; }
+    public function setImagem($imagem) { $this->imagem = $imagem; }
 
     public function __construct() {
         $this->conexao = new Conexao();
     }
 
     public function cadastrar(){
-        $consulta = $this->conexao->prepare("INSERT INTO voluntarios(id_usuario, nome, cpf, email, telefone, endereco, complemento, cidade, estado, cep, qualificacoes) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-        $consulta->execute([$this->id_usuario, $this->nome, $this->cpf, $this->email, $this->telefone, $this->endereco, $this->complemento, $this->cidade, $this->estado, $this->cep, $this->qualificacoes]);
+        $consulta = $this->conexao->prepare("INSERT INTO voluntarios(id_usuario, nome, cpf, email, telefone, endereco, complemento, cidade, estado, cep, qualificacoes, imagem) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+        $consulta->execute([$this->id_usuario, $this->nome, $this->cpf, $this->email, $this->telefone, $this->endereco, $this->complemento, $this->cidade, $this->estado, $this->cep, $this->qualificacoes, $this->imagem]);
     }
     
     public function listar(){

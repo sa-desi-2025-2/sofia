@@ -12,6 +12,7 @@ Class Ong {
     private $endereco;
     private $cep;
     private $descricao;
+    private $imagem;
 
     public function getId() { return $this->id; }
     public function setId($id) { $this->id = $id; }
@@ -31,6 +32,8 @@ Class Ong {
     public function setCEP($cep) { $this->cep = $cep; }
     public function getDescricao() { return $this->descricao; }
     public function setDescricao($descricao) { $this->descricao = $descricao; }
+    public function getImagem() { return $this->imagem; }
+    public function setImagem($imagem) { $this->imagem = $imagem; }
 
     public function __construct() {
         $this->conexao = new Conexao();
@@ -38,8 +41,8 @@ Class Ong {
 
     
     public function cadastrar(){
-        $consulta = $this->conexao->prepare("INSERT INTO ongs(id_usuario, nome, cnpj, email, telefone, endereco, cep, descricao) VALUES(?,?,?,?,?,?,?,?)");
-        $consulta->execute([$this->id_usuario, $this->nome, $this->cnpj, $this->email, $this->telefone, $this->endereco, $this->cep, $this->descricao]);
+        $consulta = $this->conexao->prepare("INSERT INTO ongs(id_usuario, nome, cnpj, email, telefone, endereco, cep, descricao, imagem) VALUES(?,?,?,?,?,?,?,?,?)");
+        $consulta->execute([$this->id_usuario, $this->nome, $this->cnpj, $this->email, $this->telefone, $this->endereco, $this->cep, $this->descricao, $this->imagem]);
     }
     
     public function listar(){
