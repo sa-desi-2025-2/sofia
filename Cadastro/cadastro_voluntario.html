@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,118 +9,121 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="CSS.css">
 </head>
+
 <body>
 
-    <nav class="d-flex justify-content-start bg-sucess p-1 body_geral nav" style="height: 13%;">
-      <a href="#" class="text-white text-decoration-none me-3"> Início </a>
-      <a href="#" class="text-white text-decoration-none me-3"> Sobre </a>
-      <a href="#" class="text-white text-decoration-none me-3"> Contato </a>
-    </nav>
+  <nav class="d-flex justify-content-start bg-sucess p-1 body_geral nav" style="height: 13%;">
+    <a href="#" class="text-white text-decoration-none me-3"> Início </a>
+    <a href="#" class="text-white text-decoration-none me-3"> Sobre </a>
+    <a href="#" class="text-white text-decoration-none me-3"> Contato </a>
+  </nav>
 
 
 
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Formulário de Cadastro</h1>
-        <form class="card p-4 shadow" action="../app/gateway.php?acao=cadastrar_voluntario" method="POST">
-            <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="nome" class="form-label">Nome</label>
-                  <input type="text" class="form-control" placeholder="Insira o nome da ONG" name="nome">
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress2" class="form-label">CPF</label>
-                  <input type="text" class="form-control" id="inputAddress2" placeholder="00.000.000/0000-00" name="cpf">
-                </div>
-            </div>
-
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" name="email">
-              </div>
-              <div class="col-md-6">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" id="telefone" placeholder="(00) 00000-0000" name="telefone">
-            </div>
-    
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label for="inputAddress" class="form-label">Endereço</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="Insira o seu endereço" name="endereco">
-            </div>
-            <div class="col-6">
-              <label for="inputAddress2" class="form-label">Complemento</label>
-              <input type="text" class="form-control" id="inputAddress2" name="complemento">
-            </div>
-    
-            <div class="row">
-              <div class="col-md-6">
-                <label for="inputCity" class="form-label">Cidade</label>
-                <input type="text" class="form-control" id="inputCity" name="cidade">
-              </div>
-              <div class="col-md-4">
-                <label for="inputState" class="form-label">Estado</label>
-                <select id="inputState" class="form-select" name="estado">
-                  <option selected>Escolha...</option>
-                  <option>Rio Grande do Sul</option>
-                  <option>Santa Catarina</option>
-                  <option>Paraná</option>
-                  <option>São Paulo</option>
-                  <option>Rio de Janeiro</option>
-                  <option>Minas Gerais</option>
-                  <option>Espírito Santo</option>
-                  <option>Goiás</option>
-                  <option>Distrito Federal</option>
-                  <option>Mato Grosso do Sul</option>
-                  <option>Mato Grosso</option>
-                  <option>Bahia</option>
-                  <option>Pernambuco</option>
-                  <option>Alagoas</option>
-                  <option>Sergipe</option>
-                  <option>Paraíba</option>
-                  <option>Rio Grande do Norte</option>
-                  <option>Ceará</option>
-                  <option>Piauí</option>
-                  <option>Maranhão</option>
-                  <option>Amapá</option>
-                  <option>Pará</option>
-                  <option>Tocantins</option>
-                  <option>Rondônia</option>
-                  <option>Acre</option>
-                  <option>Amazonas</option>
-                  <option>Roraima</option>
-                </select>
-              </div>
-              <div class="col-md-2">
-                <label for="inputZip" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="inputZip" name="cep">
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12">
-                <label for="inputQualifications" class="form-label">Qualificações</label>
-                <input type="text" class="form-control" id="inputQualifications" name="qualificacoes">
-              </div>
-            </div>
-    
-            <!-- documento/foto -->
-            <div class="mb-3">
-              <label for="formFileDisabled" class="form-label">Coloque a logo da ONG aqui: </label>
-              <input class="form-control" type="file" id="formFileDisabled" disabled>
-            </div>
-    
-    
-            <label for="senha" class="form-label">Senha</label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" id="senha"
-              placeholder="Digite sua senha" name="senha">
-            <div id="passwordHelpBlock" class="form-text">
-              <em>Sua senha tem que ter entre 8-20 caracteres, conter letras e números, e não deve conter espaços,
-                caracteres especiais ou emoji.</em>
-             </div>
-    
-            <button type="submit" class="btn btn-success w-100">Enviar</button>
-        </form>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Formulário de Cadastro</h1>
+    <form class="card p-4 shadow" action="../app/gateway.php?acao=cadastrar_voluntario" method="POST">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" placeholder="Insira o nome da ONG" name="nome">
+        </div>
+        <div class="col-6">
+          <label for="inputAddress2" class="form-label">CPF</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="00.000.000/0000-00" name="cpf">
+        </div>
       </div>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" name="email">
+        </div>
+        <div class="col-md-6">
+          <label for="telefone" class="form-label">Telefone</label>
+          <input type="tel" class="form-control" id="telefone" placeholder="(00) 00000-0000" name="telefone">
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Insira o seu endereço"
+              name="endereco">
+          </div>
+          <div class="col-6">
+            <label for="inputAddress2" class="form-label">Complemento</label>
+            <input type="text" class="form-control" id="inputAddress2" name="complemento">
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">Cidade</label>
+              <input type="text" class="form-control" id="inputCity" name="cidade">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">Estado</label>
+              <select id="inputState" class="form-select" name="estado">
+                <option selected>Escolha...</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="PR">Paraná</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="BA">Bahia</option>
+                <option value="PE">Pernambuco</option>
+                <option value="AL">Alagoas</option>
+                <option value="SE">Sergipe</option>
+                <option value="PB">Paraíba</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="CE">Ceará</option>
+                <option value="PI">Piauí</option>
+                <option value="MA">Maranhão</option>
+                <option value="AP">Amapá</option>
+                <option value="PA">Pará</option>
+                <option value="TO">Tocantins</option>
+                <option value="RO">Rondônia</option>
+                <option value="AC">Acre</option>
+                <option value="AM">Amazonas</option>
+                <option value="RR">Roraima</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label">CEP</label>
+              <input type="text" class="form-control" id="inputZip" name="cep">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="inputQualifications" class="form-label">Qualificações</label>
+              <input type="text" class="form-control" id="inputQualifications" name="qualificacoes">
+            </div>
+          </div>
+
+          <!-- documento/foto -->
+          <div class="mb-3">
+            <label for="formFileDisabled" class="form-label">Coloque a logo da ONG aqui: </label>
+            <input class="form-control" type="file" id="formFileDisabled" disabled>
+          </div>
+
+
+          <label for="senha" class="form-label">Senha</label>
+          <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"
+            id="senha" placeholder="Digite sua senha" name="senha">
+          <div id="passwordHelpBlock" class="form-text">
+            <em>Sua senha tem que ter entre 8-20 caracteres, conter letras e números, e não deve conter espaços,
+              caracteres especiais ou emoji.</em>
+          </div>
+
+          <button type="submit" class="btn btn-success w-100">Enviar</button>
+    </form>
+  </div>
 </body>
-</html>    
+
+</html>

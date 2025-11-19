@@ -29,6 +29,13 @@ Class Usuario {
         
         return $this->id;
     }
+
+    public function login() {
+        $this->senha = hash('sha512', $this->senha);
+        $consulta = $this->conexao->prepare("SELECT id_usuario, email, senha, tipo FROM usuarios WHERE email = ? AND senha = ?");
+        $consulta->execute([$this->email, $this->senha]);
+        return $consulta->fetch(PDO::FETCH_ASSOC);
+    }
     
     public function listar(){
         $consulta = $this->conexao->prepare("SELECT pk_usuario, email_usuario, eh_adm_usuario FROM usuario");      

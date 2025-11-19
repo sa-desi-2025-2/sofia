@@ -13,17 +13,9 @@ if($acao == "conectar"){
 }else if($acao == "cadastrar_voluntario"){
     $usuario = new Usuario();
 
-    // $usuario->setNome($_POST['nome']);
-    // $usuario->setCNPJ($_POST['cpf']);
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
     $usuario->setTipo('voluntario');
-    // $usuario->setTelefone($_POST['telefone']);
-    // $usuario->setEndereco($_POST['endereco']);
-    // $usuario->setComplemento($_POST['complemento']);
-    // $usuario->setCidade($_POST['cidade']);
-    // $usuario->setEstado($_POST['estado']);
-    // $usuario->setCEP($_POST['cep']);
 
     $id_usuario = $usuario->cadastrar();
 
@@ -40,6 +32,12 @@ if($acao == "conectar"){
     $voluntario->setCEP($_POST['cep']);
     $voluntario->setQualificacoes($_POST['qualificacoes']);
     $voluntario->cadastrar();
+
+    $_SESSION['id_usuario'] = $id_usuario;
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['tipo'] = 'voluntario';
+
+    header("Location: ../home.php");
 }
 
 
@@ -48,14 +46,9 @@ if($acao == "conectar"){
 } else if($acao == "cadastrar_ong"){
     $usuario = new Usuario();
 
-    // $usuario->setNome($_POST['nome']);
-    // $usuario->setCNPJ($_POST['cnpj']);
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
     $usuario->setTipo('ong');
-    // $usuario->setTelefone($_POST['telefone']);
-    // $usuario->setEndereco($_POST['endereco']);
-    // $usuario->setCEP($_POST['cep']);
 
     $id_usuario = $usuario->cadastrar();
 
@@ -69,4 +62,22 @@ if($acao == "conectar"){
     $voluntario->setCEP($_POST['cep']);
     $voluntario->setDescricao($_POST['descricao']);
     $voluntario->cadastrar();
+}
+
+if($acao == "login") {
+    $usuario = new Usuario();
+
+    $usuario->setEmail($_POST['email']);
+    $usuario->setSenha($_POST['senha']);
+
+    $login = $usuario->login();
+    if($login) {
+        $_SESSION['id_usuario'] = $login['id_usuario'];
+        $_SESSION['email'] = $login['email'];
+        $_SESSION['tipo'] = $login['tipo'];
+
+        header("Location: home.php");
+    } else {
+        header("Location: login.php?erro=1");
+    }
 }
