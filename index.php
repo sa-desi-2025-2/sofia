@@ -1,0 +1,53 @@
+<?php
+session_start();
+
+if (isset($_SESSION['tipo'])) {
+    if ($_SESSION['tipo'] === 'ong') {
+        header("Location: voluntarios_lista.php");
+    } else if ($_SESSION['tipo'] === 'voluntario') {
+        header("Location: ongs_lista.php");
+    }
+}
+
+?>
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Plataforma </title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="CSS.css">
+</head>
+
+<body>
+    <div class="menu">
+        <ul class="menu-left">
+            <li><a href="index.php"> Início</a></li>
+            <li><a href="sobre.html"> Sobre </a></li>
+            <li><a href="contato.html"> Contato </a></li>
+        </ul>
+
+        <ul class="menu-right">
+            <li><a href="doe.html"> Doe </a></li>
+            <li><a href="adote.html"> Adote </a></li>
+            <li><a href="transforme.html"> Transforme </a></li>
+        </ul>
+    </div>
+
+    <section class="tela_fundo">
+        <div class="text-center text-white">
+            <h1 class="negrito"> Três Patas </h1>
+            <p> Você não pode mudar o passado de um cachorro de rua, <br> mas pode reescrever o seu futuro!! </p>
+            <a href="login/login.php" class="btn btn-dark btn-lg"> Entre </a>
+        </div>
+
+        <p class="cachorrinhos">Nico, Pituco, Nala</p>
+    </section>
+
+</body>
+</html>

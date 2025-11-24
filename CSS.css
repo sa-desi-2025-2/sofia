@@ -84,7 +84,7 @@ body, html {
 
 .nav {
     background-color: #1b3d1b;
-    padding: 10px 20px;
+    padding: 15px 20px;
 }
 
 .nav a {
@@ -106,7 +106,7 @@ body, html {
 }
 
 .caixa_escolha {
-    background-color: f8f9fa;
+    background-color: #f8f9fa;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -125,6 +125,7 @@ header {
     justify-content: space-between;
     background-color: #f0f0f0;
     padding: 40px;
+    margin: 15px 200px;
 }
 .sobre-texto {
     flex: 1;
@@ -201,4 +202,172 @@ footer {
 }
 .nome-site {
     font-weight: bold;
+}
+
+
+.ong-lista-container {
+    padding: 40px 25vw;
+}
+
+.ong-lista-titulo {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.ong-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.ong-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ong-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.ong-card h3 {
+    margin-bottom: 10px;
+}
+
+.ong-card p {
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.btn-candidatar {
+    display: inline-block;
+    background-color: #1e3d1f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-candidatar:hover {
+    background-color: #274e28;
+}
+
+.inscrito-label {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #1e3d1f;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.container-voluntarios {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.vol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.vol-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0002;
+    text-align: center;
+}
+
+.vol-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.filtros {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.btn-filtro {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+}
+.btn-filtro:hover {
+    background: #0056b3;
+}
+.btn-filtro.ativo {
+    background: #28a745;
+}
+.vol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.vol-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.vol-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.badge-ong {
+    background: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin-top: 10px;
+    display: inline-block;
+}
+.acoes {
+    margin-top: 15px;
+}
+.btn-acao {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.btn-adicionar {
+    background: #28a745;
+    color: white;
+}
+.btn-remover {
+    background: #dc3545;
+    color: white;
 }

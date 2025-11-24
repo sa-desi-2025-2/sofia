@@ -46,7 +46,7 @@ Class Ong {
     }
     
     public function listar(){
-        $consulta = $this->conexao->prepare("SELECT pk_usuario, email_usuario, eh_adm_usuario FROM usuario");      
+        $consulta = $this->conexao->prepare("SELECT * FROM ongs");
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -92,6 +92,20 @@ Class Ong {
         $consulta->execute([$this->email]);
         return $consulta;
     }
+
+    public function voluntarioInscrito($id_ong, $id_voluntario) {
+        $sql = "SELECT 1 FROM ongs_voluntarios WHERE id_ong = ? AND id_voluntario = ?";
+        $consulta = $this->conexao->prepare($sql);
+        $consulta->execute([$id_ong, $id_voluntario]);
+        return $consulta->fetch(PDO::FETCH_ASSOC) ? true : false;
+    }
+
+    public function buscarPorIdUsuario($id_usuario) {
+        $sql = "SELECT * FROM ongs WHERE id_usuario = ?";
+        $consulta = $this->conexao->prepare($sql);
+        $consulta->execute([$id_usuario]);
+        return $consulta->fetch(PDO::FETCH_ASSOC);
+    }    
 }
 
 ?>

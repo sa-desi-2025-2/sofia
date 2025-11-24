@@ -1,4 +1,6 @@
--- Tabela usuarios
+CREATE DATABASE ong_animais;
+USE ong_animais;
+
 CREATE TABLE usuarios (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -17,8 +19,6 @@ INSERT INTO usuarios (id_usuario, email, senha, tipo, criado_em) VALUES
 (31, 'sim@sim.sim', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 'ong', '2025-11-19 19:23:28');
 
 
-
--- Tabela ongs
 CREATE TABLE ongs (
     id_ong INT PRIMARY KEY AUTO_INCREMENT,
     id_usuario INT NOT NULL,
@@ -39,8 +39,6 @@ INSERT INTO ongs VALUES
  'A melhor ong do mundo, talvez até do Brasil.', 'uploads/ongs/31.png', '2025-11-19 19:23:28');
 
 
-
--- Tabela voluntarios
 CREATE TABLE voluntarios (
     id_voluntario INT PRIMARY KEY AUTO_INCREMENT,
     id_usuario INT NOT NULL,
@@ -72,43 +70,23 @@ INSERT INTO voluntarios VALUES
  'Rua Coimbra, 155', 'Apartamento 204', 'Joinville', 'AP', '12345', 'batman', 'uploads/voluntarios/27.png', '2025-11-19 18:14:12');
 
 
-
--- Tabela projetos
-CREATE TABLE projetos (
-    id_projeto INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE ongs_voluntarios (
     id_ong INT NOT NULL,
-    nome VARCHAR(150) NOT NULL,
-    descricao TEXT,
-    data_inicio DATE,
-    data_fim DATE,
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_ong) REFERENCES ongs(id_ong) ON DELETE CASCADE
-);
-
-
-
--- Tabela vagas
-CREATE TABLE vagas (
-    id_vaga INT PRIMARY KEY AUTO_INCREMENT,
-    id_projeto INT NOT NULL,
-    titulo VARCHAR(150) NOT NULL,
-    descricao TEXT,
-    requisitos TEXT,
-    status ENUM('aberta','fechada') DEFAULT 'aberta',
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_projeto) REFERENCES projetos(id_projeto) ON DELETE CASCADE
-);
-
-
-
--- Tabela candidaturas
-CREATE TABLE candidaturas (
-    id_candidatura INT PRIMARY KEY AUTO_INCREMENT,
     id_voluntario INT NOT NULL,
-    id_vaga INT NOT NULL,
-    data_candidatura DATETIME DEFAULT CURRENT_TIMESTAMP,
-    status ENUM('pendente','aprovado','recusado') DEFAULT 'pendente',
-    UNIQUE (id_voluntario, id_vaga),
+    data_inscricao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id_ong, id_voluntario),
+    FOREIGN KEY (id_ong) REFERENCES ongs(id_ong) ON DELETE CASCADE,
+    FOREIGN KEY (id_voluntario) REFERENCES voluntarios(id_voluntario) ON DELETE CASCADE
+);
+
+CREATE TABLE convites_ongs_voluntarios (
+    id_convite INT PRIMARY KEY AUTO_INCREMENT,
+    id_ong INT NOT NULL,
+    id_voluntario INT NOT NULL,
+    status ENUM('pendente','aceito','recusado') NOT NULL DEFAULT 'pendente',
+    data_convite TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data_resposta TIMESTAMP NULL,
+    FOREIGN KEY (id_ong) REFERENCES ongs(id_ong) ON DELETE CASCADE,
     FOREIGN KEY (id_voluntario) REFERENCES voluntarios(id_voluntario) ON DELETE CASCADE,
-    FOREIGN KEY (id_vaga) REFERENCES vagas(id_vaga) ON DELETE CASCADE
+    UNIQUE KEY unique_convite_pendente (id_ong, id_voluntario, status)
 );
